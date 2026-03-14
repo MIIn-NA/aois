@@ -1,0 +1,1 @@
+/usr/bin/c++ -g -fprofile-arcs -ftest-coverage  -fprofile-arcs -ftest-coverage CMakeFiles/lab1.dir/main.cpp.o CMakeFiles/lab1.dir/binary_operations.cpp.o CMakeFiles/lab1.dir/ieee754.cpp.o CMakeFiles/lab1.dir/bcd2421.cpp.o -o lab1 

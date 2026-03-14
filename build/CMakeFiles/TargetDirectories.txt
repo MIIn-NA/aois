@@ -1,0 +1,5 @@
+/home/ubuntu/lab1_cpp/build/CMakeFiles/lab1.dir
+/home/ubuntu/lab1_cpp/build/CMakeFiles/test_runner.dir
+/home/ubuntu/lab1_cpp/build/CMakeFiles/test.dir
+/home/ubuntu/lab1_cpp/build/CMakeFiles/edit_cache.dir
+/home/ubuntu/lab1_cpp/build/CMakeFiles/rebuild_cache.dir
