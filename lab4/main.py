@@ -1,4 +1,4 @@
-# main.py
+
 import sys
 import os
 
@@ -9,7 +9,7 @@ from DoubleHashTable import DoubleHashTable
 
 def print_help():
     """Вывод справки по командам"""
-    print("\n📋 ДОСТУПНЫЕ КОМАНДЫ:")
+    print("\n ДОСТУПНЫЕ КОМАНДЫ:")
     print("  insert <ключ> <данные>  — добавить запись (CREATE)")
     print("  search <ключ>           — найти запись (READ)")
     print("  update <ключ> <данные>  — обновить запись (UPDATE)")
@@ -29,12 +29,11 @@ def main():
     print(" Размер таблицы: 20 ячеек, начальный адрес: 0")
     print("=" * 60)
 
-    # Инициализация таблицы
     ht = DoubleHashTable(capacity=20, base_address=0)
 
     print_help()
 
-    # Интерактивный цикл
+
     while True:
         try:
             cmd = input("\n>>> ").strip()
@@ -48,16 +47,15 @@ def main():
         parts = cmd.split(maxsplit=2)
         action = parts[0].lower()
 
-        # === EXIT ===
+     
         if action in ("exit", "quit", "q"):
             print(" До свидания!")
             break
 
-        # === HELP ===
         elif action == "help":
             print_help()
 
-        # === INSERT ===
+
         elif action == "insert":
             if len(parts) < 3:
                 print(" Формат: insert <ключ> <данные>")
@@ -68,7 +66,7 @@ def main():
             else:
                 print(f" Ошибка: ключ '{key}' уже существует или таблица заполнена")
 
-        # === SEARCH ===
+   
         elif action == "search":
             if len(parts) < 2:
                 print(" Формат: search <ключ>")
@@ -81,7 +79,7 @@ def main():
             else:
                 print(f" Ключ '{key}' не найден")
 
-        # === UPDATE ===
+    
         elif action == "update":
             if len(parts) < 3:
                 print(" Формат: update <ключ> <новые_данные>")
@@ -92,7 +90,7 @@ def main():
             else:
                 print(f" Ключ '{key}' не найден")
 
-        # === DELETE ===
+  
         elif action == "delete":
             if len(parts) < 2:
                 print(" Формат: delete <ключ>")
@@ -107,9 +105,9 @@ def main():
         elif action == "display":
             ht.display()
 
-        # === STATS ===
+
         elif action == "stats":
-            print("\n📊 СТАТИСТИКА ХЕШ-ТАБЛИЦЫ:")
+            print("\n СТАТИСТИКА ХЕШ-ТАБЛИЦЫ:")
             print(f"  Размер таблицы (H): {ht.H}")
             print(f"  Начальный адрес (B): {ht.B}")
             print(f"  Записей: {ht.size}")
@@ -117,7 +115,7 @@ def main():
             print(f"  Коллизий: {ht.collision_count}")
             print(f"  Записей в цепочках пробинга: {ht.chain_count}")
             print("-" * 60)
-            # Проверка требований методички
+           
             checks = [
                 ("H ≥ 20", ht.H >= 20),
                 ("Записей ≥ 10", ht.size >= 10),
@@ -128,7 +126,7 @@ def main():
             for name, passed in checks:
                 print(f"  {'прошли' if passed else 'не прошли'} {name}")
 
-        # === UNKNOWN COMMAND ===
+      
         else:
             print(f" Неизвестная команда: '{action}'. Введите 'help' для справки.")
 
