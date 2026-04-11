@@ -1,8 +1,7 @@
-# tests/test_lab4.py — первые 10 строк должны быть такими:
+
 import sys
 import os
 
-# Добавляем корень проекта в sys.path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 import pytest
@@ -12,9 +11,7 @@ from DoubleHashTable import DoubleHashTable
 from HashCell import HashCell
 from Utils import calculate_V
 
-# ... дальше идут тесты (без изменений) ...
 
-# --- Тесты для Utils ---
 def test_calculate_v_standard():
     assert calculate_V("Абаев") == 0 * 33 + 1  # А=0, Б=1
     assert calculate_V("Вяткин") == 2 * 33 + 32  # В=2, Я=32
@@ -25,7 +22,7 @@ def test_calculate_v_edge_cases():
     assert calculate_V("test") == 0  # Латиница → 0
     assert calculate_V("аб") == calculate_V("АБ")  # Регистронезависимость
 
-# --- Тесты для HashCell ---
+
 def test_cell_init_and_reset():
     c = HashCell()
     assert c.U == 0 and c.D == 0 and c.ID == ""
@@ -33,7 +30,7 @@ def test_cell_init_and_reset():
     c.reset()
     assert c.ID == "" and c.U == 0 and c.D == 0
 
-# --- Тесты для DoubleHashTable ---
+
 @pytest.fixture
 def small_table():
     """Таблица малого размера для контролируемых тестов"""
@@ -55,7 +52,6 @@ def test_insert_tombstone_reuse(small_table):
     small_table.insert("Андрей", "A")
     small_table.delete("Андрей")
     assert small_table.insert("Борис", "B") is True
-    # Проверяем, что данные заняли освободившуюся ячейку
     assert any(c.ID == "БОРИС" and c.U == 1 and c.D == 0 for c in small_table.table)
 
 def test_insert_full(small_table):
@@ -77,13 +73,13 @@ def test_update_and_delete(small_table):
 
 
 def test_collision_and_chain_counting(small_table):
-    small_table.insert("Аб", "1")  # h1=1, занимает индекс 1
-    small_table.insert("Ва", "2")  # h1=1, но индекс 1 занят → пробинг → коллизия!
+    small_table.insert("Аб", "1")  
+    small_table.insert("Ва", "2")  
 
     assert small_table.collision_count >= 1, "Коллизия не зафиксирована"
     assert small_table.chain_count >= 1, "Цепочка пробинга не зафиксирована"
 
-    # Проверка, что "Ва" действительно встал в другую ячейку из-за пробинга
+    
     res = small_table.search("Ва")
     assert res is not None
     idx, cell = res
