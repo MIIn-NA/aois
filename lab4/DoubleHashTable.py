@@ -1,8 +1,7 @@
-# DoubleHashTable.py
+
 import sys
 import os
 
-# Добавляем корень проекта в путь для импортов
 _current_dir = os.path.dirname(os.path.abspath(__file__))
 if _current_dir not in sys.path:
     sys.path.insert(0, _current_dir)
@@ -118,4 +117,4 @@ class DoubleHashTable:
                 print(f"{i:<4} | {'[ПУСТО]':<12} | {'-':<5} | {'-':<4} || {'[ПУСТО]':<10} | - | 0 | - | - | 0 | -1 | -")
         print("=" * 105)
         print(
-            f"📊 Заполнение: {self.get_load_factor():.2%} | 💥 Коллизии: {self.collision_count} |  Цепочки: {self.chain_count}")
+            f" Заполнение: {self.get_load_factor():.2%} |  Коллизии: {self.collision_count} |  Цепочки: {self.chain_count}")
