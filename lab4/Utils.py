@@ -1,4 +1,4 @@
-# Русский алфавит: А=0 ... Я=32 (основание 33)
+
 ALPHABET = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"
 CHAR_MAP = {ch: i for i, ch in enumerate(ALPHABET)}
 
